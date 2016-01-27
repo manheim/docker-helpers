@@ -1,8 +1,7 @@
-# Docker::Helpers
+# docker-helpers
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/docker/helpers`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Collection of helpers helpers to assist in testing/developing with the
+docker-api gem.
 
 ## Installation
 
@@ -22,7 +21,21 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Turning on output stream requires that ENV['DEBUG'] be defined.  Then you can
+pass the output stream to a Docker::Image.build method to receive output form
+the image build process.
+
+# Example
+
+```
+  DEBUG=1 bundle exec your_thing
+```
+
+```ruby
+  output_stream = Docker::Helpers.output_stream
+  Docker::Image.build_from_dir('.', opts, &output_stream )
+
+```
 
 ## Development
 
@@ -32,10 +45,8 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/docker-helpers.
-
+Bug reports and pull requests are welcome on GitHub at https://github.com/manheim/docker-helpers.
 
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
