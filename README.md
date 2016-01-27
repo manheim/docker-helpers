@@ -1,7 +1,6 @@
 # docker-helpers
 
-Collection of helpers helpers to assist in testing/developing with the
-docker-api gem.
+Collection of helpers to assist in testing/developing with the docker-api gem.
 
 ## Installation
 
