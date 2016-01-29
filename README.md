@@ -20,9 +20,9 @@ Or install it yourself as:
 
 ## Usage
 
-Turning on output stream requires that ENV['DEBUG'] be defined.  Then you can
-pass the output stream to a Docker::Image.build method to receive output form
-the image build process.
+You can use the Docker::Helpers.get_image method and the output stream will
+be initialized automatically.  Only the DEBUG ENV var is required to turn on
+the docker build output.
 
 # Example
 
@@ -31,8 +31,28 @@ the image build process.
 ```
 
 ```ruby
+  #Manually setup a stream
+
   output_stream = Docker::Helpers.output_stream
   Docker::Image.build_from_dir('.', opts, &output_stream )
+
+  # or let .get_image set it up.
+  
+  # Try to get an image that exists.  Returns an instance of
+  # Docker::Image if found.
+
+  image = Docker::Helpers.get_image(image_id: 'asdf1234')
+
+  # No options passed will try to build a Dockerfile in the current dir.
+  image = Docker::Helpers.get_image()
+
+  # You can specifiy a build dir as well as
+  # options supported by Docker::Image.build_from_dir.
+
+  image = Docker::Helpers.get_image(build_dir: 'some_dir/')
+
+  opts = { build_dir: 'some_dir/', t: 'a_tag', nocache: 'true' }
+  image = Docker::Helpers.get_image(opts)
 
 ```
 
