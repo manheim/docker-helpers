@@ -1,4 +1,5 @@
 require "docker/helpers/version"
+require "docker"
 require 'json'
 
 module Docker
@@ -11,6 +12,15 @@ module Docker
             $stdout.puts body["stream"]
           end
         }
+      end
+
+      def get_image(opts = {})
+        if opts[:image_id]
+          Docker::Image.get(opts[:image_id])
+        else
+          build_dir = opts[:build_dir] || '.'
+          Docker::Image.build_from_dir(build_dir, opts, &output_stream)
+        end
       end
 
       private
