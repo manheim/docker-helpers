@@ -1,5 +1,7 @@
 # docker-helpers
 
+[![Travis](https://img.shields.io/travis/rust-lang/rust.svg)](https://github.com/manheim/docker-helpers)
+
 Collection of helpers to assist in testing/developing with the docker-api gem.
 
 ## Installation
