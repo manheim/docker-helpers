@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.name          = "docker-helpers"
   spec.version       = Docker::Helpers::VERSION
   spec.authors       = ["Reppard Walker", "Jonathan Niesen"]
-  spec.email         = ["reppard.walker@manheim.com"]
+  spec.email         = ["reppard.walker@manheim.com", "jonathan.niesen@manheim.com"]
 
   spec.summary       = 'Collection of helpers to supplement the docker-api gem'
   spec.description   = 'Provides some helpers to assist in testing/developing with the docker-api gem.'
